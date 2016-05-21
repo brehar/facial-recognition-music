@@ -267,17 +267,17 @@ section h3.section-subheading {
     margin: 15px 0;
     text-transform: none
 }
-#portfolio .portfolio-item {
+#sample-playlists .sample-playlists-item {
     margin: 0 0 15px;
     right: 0
 }
-#portfolio .portfolio-item .portfolio-link {
+#sample-playlists .sample-playlists-item .sample-playlists-link {
     display: block;
     position: relative;
     max-width: 400px;
     margin: 0 auto
 }
-#portfolio .portfolio-item .portfolio-link .portfolio-hover {
+#sample-playlists .sample-playlists-item .sample-playlists-link .sample-playlists-hover {
     background: rgba(254, 209, 54, .9);
     position: absolute;
     width: 100%;
@@ -287,10 +287,10 @@ section h3.section-subheading {
     -webkit-transition: all ease .5s;
     -moz-transition: all ease .5s
 }
-#portfolio .portfolio-item .portfolio-link .portfolio-hover:hover {
+#sample-playlists .sample-playlists-item .sample-playlists-link .sample-playlists-hover:hover {
     opacity: 1
 }
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
+#sample-playlists .sample-playlists-item .sample-playlists-link .sample-playlists-hover .sample-playlists-hover-content {
     position: absolute;
     width: 100%;
     height: 20px;
@@ -300,34 +300,34 @@ section h3.section-subheading {
     margin-top: -12px;
     color: #fff
 }
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i {
+#sample-playlists .sample-playlists-item .sample-playlists-link .sample-playlists-hover .sample-playlists-hover-content i {
     margin-top: -12px
 }
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h3, #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h4 {
+#sample-playlists .sample-playlists-item .sample-playlists-link .sample-playlists-hover .sample-playlists-hover-content h3, #sample-playlists .sample-playlists-item .sample-playlists-link .sample-playlists-hover .sample-playlists-hover-content h4 {
     margin: 0
 }
-#portfolio .portfolio-item .portfolio-caption {
+#sample-playlists .sample-playlists-item .sample-playlists-caption {
     max-width: 400px;
     margin: 0 auto;
     background-color: #fff;
     text-align: center;
     padding: 25px
 }
-#portfolio .portfolio-item .portfolio-caption h4 {
+#sample-playlists .sample-playlists-item .sample-playlists-caption h4 {
     text-transform: none;
     margin: 0
 }
-#portfolio .portfolio-item .portfolio-caption p {
+#sample-playlists .sample-playlists-item .sample-playlists-caption p {
     font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-style: italic;
     font-size: 16px;
     margin: 0
 }
-#portfolio * {
+#sample-playlists * {
     z-index: 2
 }
 @media (min-width:767px) {
-    #portfolio .portfolio-item {
+    #sample-playlists .sample-playlists-item {
         margin: 0 0 30px
     }
 }
@@ -607,7 +607,7 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
 .btn:focus, .btn:active, .btn.active, .btn:active:focus {
     outline: 0
 }
-.portfolio-modal .modal-content {
+.sample-playlists-modal .modal-content {
     border-radius: 0;
     background-clip: border-box;
     -webkit-box-shadow: none;
@@ -617,27 +617,27 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
     padding: 100px 0;
     text-align: center
 }
-.portfolio-modal .modal-content h2 {
+.sample-playlists-modal .modal-content h2 {
     margin-bottom: 15px;
     font-size: 3em
 }
-.portfolio-modal .modal-content p {
+.sample-playlists-modal .modal-content p {
     margin-bottom: 30px
 }
-.portfolio-modal .modal-content p.item-intro {
+.sample-playlists-modal .modal-content p.item-intro {
     margin: 20px 0 30px;
     font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-style: italic;
     font-size: 16px
 }
-.portfolio-modal .modal-content ul.list-inline {
+.sample-playlists-modal .modal-content ul.list-inline {
     margin-bottom: 30px;
     margin-top: 0
 }
-.portfolio-modal .modal-content img {
+.sample-playlists-modal .modal-content img {
     margin-bottom: 30px
 }
-.portfolio-modal .close-modal {
+.sample-playlists-modal .close-modal {
     position: absolute;
     width: 75px;
     height: 75px;
@@ -646,10 +646,10 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
     right: 25px;
     cursor: pointer
 }
-.portfolio-modal .close-modal:hover {
+.sample-playlists-modal .close-modal:hover {
     opacity: .3
 }
-.portfolio-modal .close-modal .lr {
+.sample-playlists-modal .close-modal .lr {
     height: 75px;
     width: 1px;
     margin-left: 35px;
@@ -659,7 +659,7 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
     -webkit-transform: rotate(45deg);
     z-index: 1051
 }
-.portfolio-modal .close-modal .lr .rl {
+.sample-playlists-modal .close-modal .lr .rl {
     height: 75px;
     width: 1px;
     background-color: #222;
@@ -668,7 +668,7 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
     -webkit-transform: rotate(90deg);
     z-index: 1052
 }
-.portfolio-modal .modal-backdrop {
+.sample-playlists-modal .modal-backdrop {
     opacity: 0;
     display: none
 }
@@ -689,3 +689,33 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: #fed136
 }
+
+
+/*GRID WITH LAYOUTS TEST*/
+/*body {
+  height : 1200px;
+  width : 100%;
+  background-color: #dedede;
+  padding: 2px;
+}*/
+
+.dashSection {
+  margin : 2px !important;
+  padding: 2px !important;
+  padding-left : 1px !important;
+  padding-right: 1px !important;
+}
+.dashSection > div {
+  min-height : 100px;
+  background-color : #c14543;
+  margin : 2px !important;
+}
+
+.block1 {  min-height : 200px}
+.block5 {  min-height : 200px}
+.block6 {  min-height : 270px}
+.block7 {  min-height : 230px}
+.block8 {  min-height : 300px}
+
+
+/*GRID WITH LAYOUTS TEST*/
