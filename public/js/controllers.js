@@ -2,15 +2,11 @@
 
 var app = angular.module('musicApp');
 
-app.controller('homeCtrl', function() {
-    console.log('home controller!')
-});
-
-app.controller('musicresultsCtrl', function($scope, Spotify, Mood) {
+app.controller('musicresultsCtrl', function ($scope, Spotify, Mood) {
     var moods = Mood.getMood();
     moods = moods.scores;
 
-    var arr = Object.keys(moods).map(function(key) {
+    var arr = Object.keys(moods).map(function (key) {
         return moods[key];
     });
 
@@ -39,25 +35,25 @@ app.controller('musicresultsCtrl', function($scope, Spotify, Mood) {
         $scope.songs = res.items;
     });
 
-    $scope.playSong = function(song) {
+    $scope.playSong = function (song) {
         var audio = new Audio(song);
         audio.play();
     };
 });
 
-app.controller('getphotoCtrl', function($scope, $state, Mood) {
-    $(document).ready(function() {
+app.controller('getphotoCtrl', function ($scope, $state, Mood) {
+    $(document).ready(function () {
         $('#getMood').on('click', getEmotions);
     });
 
-    $scope.take_snapshot = function() {
-        Webcam.snap(function(data_uri) {
-            document.getElementById('results').innerHTML = '<img id="base64image" src="'+data_uri+'"/>';
+    $scope.take_snapshot = function () {
+        Webcam.snap(function (data_uri) {
+            document.getElementById('results').innerHTML = '<img id="base64image" src="' + data_uri + '"/>';
             $scope.SaveSnap();
         });
     };
 
-    function ShowCam(){
+    function ShowCam() {
         Webcam.set({
             width: 320,
             height: 240,
@@ -67,22 +63,24 @@ app.controller('getphotoCtrl', function($scope, $state, Mood) {
         Webcam.attach('#my_camera');
     }
 
-    $scope.SaveSnap = function(){
-        document.getElementById("loading").innerHTML="Saving, please wait...";
-        var file =  document.getElementById("base64image").src;
+    $scope.SaveSnap = function () {
+        document.getElementById("loading").innerHTML = "Saving, please wait...";
+        var file = document.getElementById("base64image").src;
         var formdata = new FormData();
         formdata.append("base64image", file);
         console.log(formdata);
         var ajax = new XMLHttpRequest();
-        ajax.addEventListener("load", function(event) { uploadcomplete(event);}, false);
+        ajax.addEventListener("load", function (event) {
+            uploadcomplete(event);
+        }, false);
         ajax.open("POST", "/facial-recognition/html/upload.php");
         ajax.send(formdata);
     };
 
-    function uploadcomplete(event){
-        document.getElementById("loading").innerHTML="";
-        var image_return=event.target.responseText;
-        var showup=document.getElementById("uploaded").src='http://bretthartman.net/facial-recognition/uploads/mypic.png';
+    function uploadcomplete(event) {
+        document.getElementById("loading").innerHTML = "";
+        var image_return = event.target.responseText;
+        var showup = document.getElementById("uploaded").src = 'http://bretthartman.net/facial-recognition/uploads/mypic.png';
     }
 
     function getEmotions() {
@@ -91,7 +89,7 @@ app.controller('getphotoCtrl', function($scope, $state, Mood) {
 
         var file = '';
 
-        CallAPI(file,apiUrl,apiKey);
+        CallAPI(file, apiUrl, apiKey);
     }
 
     function CallAPI(file, apiUrl, apiKey) {
@@ -115,59 +113,47 @@ app.controller('getphotoCtrl', function($scope, $state, Mood) {
             });
     }
 
-    window.onload= ShowCam();
+    window.onload = ShowCam();
 });
 
-app.controller('homeCtrl', function($scope) {
-            console.log('home controller!')
+app.controller('homeCtrl', function ($scope) {
+    console.log('home controller!')
 
-            $scope.getFacialExpressionScore = function() {
-                console.log('getFacialExpressionScore');
-                var apiKey = "1dd1f4e23a5743139399788aa30a7153";
-                var apiUrl = "https://api.projectoxford.ai/emotion/v1.0/recognize";
-                console.log('image upload click!!!');
-                var file = document.getElementById('filename').files[0];
+    $scope.getFacialExpressionScore = function () {
+        console.log('getFacialExpressionScore');
+        var apiKey = "1dd1f4e23a5743139399788aa30a7153";
+        var apiUrl = "https://api.projectoxford.ai/emotion/v1.0/recognize";
+        console.log('image upload click!!!');
+        var file = document.getElementById('filename').files[0];
 
-                CallAPI(file, apiUrl, apiKey)
+        CallAPI(file, apiUrl, apiKey)
 
-                function CallAPI(file, apiUrl, apiKey) {
-                    $.ajax({
-                            url: apiUrl,
-                            beforeSend: function(xhrObj) {
-                                xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
-                                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", apiKey);
-                            },
-                            type: "POST",
-                            data: file,
-                            processData: false
-                        })
-                        .done(function(response) {
-                            $('#response').html(response);
-                            console.log(response[0])
-                            var moodData = response[0].scores;
+        function CallAPI(file, apiUrl, apiKey) {
+            $.ajax({
+                url: apiUrl,
+                beforeSend: function (xhrObj) {
+                    xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
+                    xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", apiKey);
+                },
+                type: "POST",
+                data: file,
+                processData: false
+            })
+                .done(function (response) {
+                    $('#response').html(response);
+                    console.log(response[0])
+                    var moodData = response[0].scores;
 
-                            renderMood(moodData);
-                        })
-                        .fail(function(error) {
-                            console.log(error.getAllResponseHeaders());
-                        });
-                }
-            }
+                    renderMood(moodData);
+                })
+                .fail(function (error) {
+                    console.log(error.getAllResponseHeaders());
+                });
+        }
+    }
 
-                  function renderMood(moodData) {
-                    // $scope.mood = moodData;
-                    // console.log($scope.mood);
-                  }
-          });
-
-        app.controller('musicresultsCtrl', function($scope, Music) {
-            console.log('music controller!')
-            var moods = ['angry', 'powerful', 'revolted', 'scared', 'happy', 'chillout', 'sad', 'energetic'];
-            var mood = moods[Math.floor(Math.random() * moods.length)];
-
-            Music.getMusicFromMood(mood).then(res => {
-                $scope.songs = res.data.root.tracks.track;
-            });
-
-
-        });
+    function renderMood(moodData) {
+        // $scope.mood = moodData;
+        // console.log($scope.mood);
+    }
+});
