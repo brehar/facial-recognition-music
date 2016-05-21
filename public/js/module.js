@@ -12,6 +12,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: '/html/musicresults.html',
         controller: 'musicresultsCtrl'
     });
-    
+
     $urlRouterProvider.otherwise('/');
 });
