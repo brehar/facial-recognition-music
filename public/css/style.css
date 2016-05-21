@@ -1,0 +1,20 @@
+.box {
+    display: inline-block;
+    width: 320px;
+}
+
+#Cam {
+    background: rgb(255, 255, 215);
+}
+
+#Prev {
+    background: rgb(255, 255, 155);
+}
+
+#Saved {
+    background: rgb(255, 255, 55);
+}
+
+.hidden {
+    display: none;
+}
