@@ -3,7 +3,7 @@
 var app = angular.module('musicApp');
 
 app.controller('homeCtrl', function() {
-    
+    console.log('home controller!')
 });
 
 app.controller('musicresultsCtrl', function($scope, Spotify, Mood) {

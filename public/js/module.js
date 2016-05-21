@@ -16,7 +16,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: '/facial-recognition/html/getphoto.html',
         controller: 'getphotoCtrl'
     });
-    
+
     $urlRouterProvider.otherwise('/');
 });
 
