@@ -22,5 +22,5 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 app.config(function(SpotifyProvider) {
     SpotifyProvider.setClientId('b52dc91988324fd697d1f2db77378d46');
-    SpotifyProvider.setAuthToken('BQA8gbVvu6O-h46lWQ2N-jt3zrRedT-YIJDf8Hj0BtYdugQVTQ-oaNBB3NaTpQPwjKFhJYT2im9N3UsWYJ71kwJL5Rq6Bh-ED-6GxHvl8UvWXc7ZDv-PnXvtECIujytWyJzEnqCBmQtbEqTpCEY');
+    SpotifyProvider.setAuthToken('BQBR1duimRH3wtIkaT0XpK706sZNM5tuk4Wyq1mth5MsFK9s3nhFZE4zZ833Zv8rCh1xBb4EaeXdxm_7LAbjzhVIKYfsr52ME4O0y9kCzNK_BgOK87ELI9AvryKPWDErcytOdg_FUEgKr3KcQt0');
 });

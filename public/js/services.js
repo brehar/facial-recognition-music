@@ -6,6 +6,6 @@ app.service('Mood', function() {
     };
 
     this.getMood = function() {
-        return photoMood;
+        return this.photoMood;
     };
 });

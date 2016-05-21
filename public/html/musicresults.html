@@ -1,3 +1,7 @@
+<pre>
+    Your current mood is {{ currentMood }}. Here are your song suggestions.
+</pre>
+
 <ul>
     <li ng-repeat="song in songs">
         {{ song.track.name }} by {{ song.track.artists[0].name }}

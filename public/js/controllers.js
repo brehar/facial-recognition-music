@@ -6,9 +6,25 @@ app.controller('homeCtrl', function() {
     
 });
 
-app.controller('musicresultsCtrl', function($scope, Spotify) {
-    var moods = ['anger', 'contempt', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise'];
-    var mood = moods[Math.floor(Math.random() * moods.length)];
+app.controller('musicresultsCtrl', function($scope, Spotify, Mood) {
+    var moods = Mood.getMood();
+    moods = moods.scores;
+
+    var arr = Object.keys(moods).map(function(key) {
+        return moods[key];
+    });
+
+    var max = Math.max.apply(null, arr);
+
+    for (var prop in moods) {
+        if (moods.hasOwnProperty(prop)) {
+            if (moods[prop] === max) {
+                var mood = prop;
+            }
+        }
+    }
+
+    $scope.currentMood = mood;
 
     Spotify.search(mood, 'playlist').then(res => {
         var rand = Math.floor(Math.random() * res.playlists.items.length);
@@ -29,7 +45,7 @@ app.controller('musicresultsCtrl', function($scope, Spotify) {
     };
 });
 
-app.controller('getphotoCtrl', function($scope) {
+app.controller('getphotoCtrl', function($scope, $state, Mood) {
     $(document).ready(function() {
         $('#getMood').on('click', getEmotions);
     });
@@ -90,7 +106,9 @@ app.controller('getphotoCtrl', function($scope) {
         })
             .done(function (response) {
                 $('#response').html(response);
-                console.log(response[0])
+                console.log(response[0]);
+                Mood.setMood(response[0]);
+                $state.go('musicresults');
             })
             .fail(function (error) {
                 console.log(error.getAllResponseHeaders());
