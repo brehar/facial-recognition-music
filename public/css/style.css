@@ -668,3 +668,33 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: #fed136
 }
+
+
+/*GRID WITH LAYOUTS TEST*/
+/*body {
+  height : 1200px;
+  width : 100%;
+  background-color: #dedede;
+  padding: 2px;
+}*/
+
+.dashSection {
+  margin : 2px !important;
+  padding: 2px !important;
+  padding-left : 1px !important;
+  padding-right: 1px !important;
+}
+.dashSection > div {
+  min-height : 100px;
+  background-color : #c14543;
+  margin : 2px !important;
+}
+
+.block1 {  min-height : 200px}
+.block5 {  min-height : 200px}
+.block6 {  min-height : 270px}
+.block7 {  min-height : 230px}
+.block8 {  min-height : 300px}
+
+
+/*GRID WITH LAYOUTS TEST*/
