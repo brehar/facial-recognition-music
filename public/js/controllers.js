@@ -11,10 +11,12 @@ app.controller('musicresultsCtrl', function($scope, Spotify) {
     var mood = moods[Math.floor(Math.random() * moods.length)];
 
     Spotify.search(mood, 'playlist').then(res => {
-        var uri = res.playlists.items[0].uri;
+        var rand = Math.floor(Math.random() * res.playlists.items.length);
+
+        var uri = res.playlists.items[rand].uri;
         var uriArr = uri.split(':');
         var userId = uriArr[2];
-        var playlistId = res.playlists.items[0].id;
+        var playlistId = res.playlists.items[rand].id;
 
         return Spotify.getPlaylistTracks(userId, playlistId);
     }).then(res => {
