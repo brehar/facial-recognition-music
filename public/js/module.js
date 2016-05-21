@@ -7,6 +7,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
         url: '/',
         templateUrl: '/html/home.html',
         controller: 'homeCtrl'
+    }).state('musicresults', {
+        url: '/musicresults',
+        templateUrl: '/html/musicresults.html',
+        controller: 'musicresultsCtrl'
     });
     
     $urlRouterProvider.otherwise('/');
