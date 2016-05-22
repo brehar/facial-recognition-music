@@ -73,7 +73,7 @@ app.controller('getphotoCtrl', function ($scope, $state, Mood) {
         ajax.addEventListener("load", function (event) {
             uploadcomplete(event);
         }, false);
-        ajax.open("POST", "/facial-recognition/html/upload.php");
+        ajax.open("POST", "/html/upload.php");
         ajax.send(formdata);
     };
 

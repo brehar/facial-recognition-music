@@ -1,10 +1,94 @@
-<div class="box" id="Cam"><b>Webcam Preview...</b>
-    <div id="my_camera"></div><form><input type="button" value="Snap It" ng-click="take_snapshot()"></form>
-</div>
-<div class="box" id="Prev">
-    <b>Snap Preview...</b><div id="results"></div>
-</div>
-<div class="box hidden" id="Saved">
-    <b>Saved</b><span id="loading"></span><img id="uploaded" src=""/>
-</div>
-<button type="button" id="getMood">Get Mood</button>
+    <div class="container">
+        <div class="page-header">
+            <h1 class="getPhotoHeader">Snap A Pic</h1>
+            <p class="lead">Take a picture of your face to get your mood-based playlist</p>
+        </div>
+        <div class="row">
+
+            <div class="col-md-8">
+              <div class="centerBlock">
+                <div class = "video-header">
+                  Please Center Face in Camera
+                </div>
+                <br>
+                  <div id="my_camera"></div>
+                <br>
+                  <form>
+                      <input type="button" class="btn-primary" value="Snap It" ng-click="take_snapshot()">
+                  </form>
+              </div>
+            </div>
+            <!-- PREVIEW -->
+
+            <div class="col-md-4">
+            <div class="box" id="Prev">
+                <b class = "video-header">Snap Preview...</b>
+                <div id="results"></div>
+            </div>
+            </div>
+
+        </div>
+
+        <div class="box hidden" id="Saved">
+            <b>Saved</b><span id="loading"></span><img id="uploaded" src=""/>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="page-header">
+            <h1 class="getPhotoHeader">Get My Playlist</h1>
+            <p class="lead">Once you've snapped it, you can get your customized playlist</p>
+
+            <div class="my-playlist-wrapper">
+              <button type="button" class="btn-primary my-playlist-button" id="getMood">My Mood Playlist</button>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+
+            </div>
+            <!-- PREVIEW -->
+
+            <div class="col-md-4">
+
+            </div>
+
+        </div>
+
+    </div>
+
+<style>
+    body {
+        background: #F09819;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to left, #F09819, #EDDE5D);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to left, #F09819, #EDDE5D);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+</style>
+
+<!-- <div class="orange-background">
+    <div class="container">
+      <div class="layout">
+
+        <div class="box center" id="Cam"><b>Webcam Preview...</b>
+            <div id="my_camera"></div><form><input type="button" value="Snap It" ng-click="take_snapshot()"></form>
+        </div>
+
+        <div class="box center" id="Prev">
+            <b>Snap Preview...</b><div id="results"></div>
+        </div>
+
+      </div>
+
+      <div class="box hidden" id="Saved">
+          <b>Saved</b><span id="loading"></span><img id="uploaded" src=""/>
+      </div>
+
+      <button type="button" id="getMood">Get Mood</button>
+    </div>
+
+  </div> -->
