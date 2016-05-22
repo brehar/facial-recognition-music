@@ -7,12 +7,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
         url: '/',
         templateUrl: '/html/home.html',
         controller: 'homeCtrl'
-    }).state('/facial-recognition/musicresults', {
-        url: '/musicresults',
+    }).state('/musicresults', {
+        url: 'html/musicresults',
         templateUrl: '/html/musicresults.html',
         controller: 'musicresultsCtrl'
     }).state('getphoto', {
-        url: '/facial-recognition/getphoto',
+        url: '/html/getphoto',
         templateUrl: '/html/getphoto.html',
         controller: 'getphotoCtrl'
     });
