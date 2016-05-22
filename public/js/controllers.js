@@ -44,7 +44,17 @@ app.controller('musicresultsCtrl', function ($scope, Spotify, Mood) {
         });
     } else if (option === 'personal') {
         Spotify.getUserPlaylists(username).then(res => {
-            console.log(res);
+            var playlistId;
+
+            for (var i = 0; i < res.items.length; i++) {
+                if (res.items[i].name === mood) {
+                    playlistId = res.items[i].id;
+                }
+            }
+
+            return Spotify.getPlaylistTracks(username, playlistId);
+        }).then(res => {
+            $scope.songs = res.items;
         });
     }
 
