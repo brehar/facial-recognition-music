@@ -838,3 +838,51 @@ background: linear-gradient(to left, #F09819 , #EDDE5D); /* W3C, IE 10+/ Edge, F
 }
 
 /*PHOTO PAGE STYLES END*/
+
+
+/*Radio Specific styles*/
+
+div.controls h1 {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  display: inline-block;
+  position: absolute;
+  left: 10px;
+  top: -10px;
+  padding: 0 10px;
+  color: #fafafa;
+}
+
+div.controls {
+  margin-bottom: 12px;
+  border: 1px dotted #fafafa;
+  padding: 25px 20px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+input[type='radio'] + label:before {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+input[type='radio'] + label:hover:after, input[type='radio']:checked + label:after {
+  content: '\2022';
+  position: absolute;
+  top: 0px;
+  font-size: 19px;
+  line-height: 15px;
+}
+input[type='radio'] + label:hover:after {
+  color: #c7c7c7;
+}
+input[type='radio']:checked + label:after, input[type='radio']:checked + label:hover:after {
+  color: #fff;
+}
