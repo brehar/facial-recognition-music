@@ -123,6 +123,7 @@ app.controller('homeCtrl', function ($scope, $state) {
     var mymood1=[];
     // $scope.testThis = mymood1;
 
+
     $scope.getFacialExpressionScore = function () {
         console.log('getFacialExpressionScore');
         var apiKey = "1dd1f4e23a5743139399788aa30a7153";
@@ -130,9 +131,7 @@ app.controller('homeCtrl', function ($scope, $state) {
         console.log('image upload click!!!');
         var file = document.getElementById('filename').files[0];
 
-        CallAPI(file, apiUrl, apiKey)
-
-
+        CallAPI(file, apiUrl, apiKey);
     };
 
     function CallAPI(file, apiUrl, apiKey) {
