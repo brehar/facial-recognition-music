@@ -42,6 +42,7 @@ app.controller('musicresultsCtrl', function ($scope, Spotify, Mood) {
 });
 
 app.controller('getphotoCtrl', function ($scope, $state, Mood) {
+  console.log('get photos')
     $(document).ready(function () {
         $('#getMood').on('click', getEmotions);
     });
@@ -116,7 +117,8 @@ app.controller('getphotoCtrl', function ($scope, $state, Mood) {
     window.onload = ShowCam();
 });
 
-app.controller('homeCtrl', function ($scope) {
+app.controller('homeCtrl', function ($scope, $state) {
+    $scope.mymood1='hey';
     console.log('home controller!')
 
     $scope.getFacialExpressionScore = function () {
@@ -128,32 +130,57 @@ app.controller('homeCtrl', function ($scope) {
 
         CallAPI(file, apiUrl, apiKey)
 
-        function CallAPI(file, apiUrl, apiKey) {
-            $.ajax({
-                url: apiUrl,
-                beforeSend: function (xhrObj) {
-                    xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
-                    xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", apiKey);
-                },
-                type: "POST",
-                data: file,
-                processData: false
-            })
-                .done(function (response) {
-                    $('#response').html(response);
-                    console.log(response[0]);
-                    var moodData = response[0].scores;
 
-                    renderMood(moodData);
-                })
-                .fail(function (error) {
-                    console.log(error.getAllResponseHeaders());
-                });
-        }
     };
 
-    function renderMood(moodData) {
-        // $scope.mood = moodData;
-        // console.log($scope.mood);
+    function CallAPI(file, apiUrl, apiKey) {
+      console.log($state)
+
+        $.ajax({
+            url: apiUrl,
+            beforeSend: function (xhrObj) {
+                xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", apiKey);
+            },
+            type: "POST",
+            data: file,
+            processData: false
+        })
+            .done(function (response) {
+                $('#response').html(response);
+                console.log(response[0]);
+                var moodData = response[0].scores;
+                var moodArray = [];
+                var arr = Object.keys(response[0].scores).map(function(key) {
+                var thisScore = response[0].scores[key];
+                thisScore = 1/Number(thisScore);
+                thisScore = thisScore.toString().split('.');
+                var len =thisScore[0].length;
+                var finalScore = 10-len;
+                moodArray.push([finalScore,key])
+                $scope.mymood1=moodArray;
+                return response[key];
+
+              });
+              console.log(moodArray)
+              console.log('state:', $state)
+              console.log('scope', $scope)
+
+              //setScope()
+
+           })
+
+            .fail(function (error) {
+                console.log(error.getAllResponseHeaders());
+            });
+            //$scope.myMoods='great'
+            function setScope(){
+              console.log($scope.mymood1)
+
+            }
     }
+
+
+
+
 });

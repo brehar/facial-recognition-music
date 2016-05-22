@@ -43,27 +43,33 @@
             <div class="my-playlist-wrapper">
               <button type="button" class="btn-primary my-playlist-button" id="getMood">My Mood Playlist</button>
             </div>
-
         </div>
-        <div class="row">
-            <div class="col-md-8">
 
-            </div>
-            <!-- PREVIEW -->
+<!-- PLAYLIST RESULTS START -->
 
-            <div class="col-md-4">
+<!-- <div class="playlist-results">
+  <pre>
+      Your current mood is {{ currentMood }}. Here are your song suggestions.
+  </pre>
 
-            </div>
+  <ul>
+      <li ng-repeat="song in songs">
+          {{ song.track.name }} by {{ song.track.artists[0].name }}
+          <button class="btn btn-primary btn-sm" ng-click="playSong(song.track.preview_url)">Play Sample</button>
+      </li>
+  </ul>
+</div> -->
 
-        </div>
+
+
+<!-- PLAYLIST RESULTS START -->
+
 
     </div>
 
 <style>
     body {
-
       padding-top: 65px;
-
         background: #F09819;
         /* fallback for old browsers */
         background: -webkit-linear-gradient(to left, #F09819, #EDDE5D);
@@ -72,26 +78,3 @@
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
 </style>
-
-<!-- <div class="orange-background">
-    <div class="container">
-      <div class="layout">
-
-        <div class="box center" id="Cam"><b>Webcam Preview...</b>
-            <div id="my_camera"></div><form><input type="button" value="Snap It" ng-click="take_snapshot()"></form>
-        </div>
-
-        <div class="box center" id="Prev">
-            <b>Snap Preview...</b><div id="results"></div>
-        </div>
-
-      </div>
-
-      <div class="box hidden" id="Saved">
-          <b>Saved</b><span id="loading"></span><img id="uploaded" src=""/>
-      </div>
-
-      <button type="button" id="getMood">Get Mood</button>
-    </div>
-
-  </div> -->
