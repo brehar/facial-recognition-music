@@ -5,15 +5,15 @@ var app = angular.module('musicApp', ['ui.router', 'spotify']);
 app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('home', {
         url: '/',
-        templateUrl: '/html/home.html',
+        templateUrl: '/facial-recognition/html/home.html',
         controller: 'homeCtrl'
     }).state('musicresults', {
         url: '/musicresults',
-        templateUrl: '/html/musicresults.html',
+        templateUrl: '/facial-recognition/html/musicresults.html',
         controller: 'musicresultsCtrl'
     }).state('getphoto', {
         url: '/getphoto',
-        templateUrl: '/html/getphoto.html',
+        templateUrl: '/facial-recognition/html/getphoto.html',
         controller: 'getphotoCtrl'
     });
 
@@ -22,5 +22,5 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 app.config(function(SpotifyProvider) {
     SpotifyProvider.setClientId('b52dc91988324fd697d1f2db77378d46');
-    SpotifyProvider.setAuthToken('BQBR1duimRH3wtIkaT0XpK706sZNM5tuk4Wyq1mth5MsFK9s3nhFZE4zZ833Zv8rCh1xBb4EaeXdxm_7LAbjzhVIKYfsr52ME4O0y9kCzNK_BgOK87ELI9AvryKPWDErcytOdg_FUEgKr3KcQt0');
+    SpotifyProvider.setAuthToken('BQBs7wfOdARgq8jTfPJV5K57T6id19ZSIO6IJGNMjbjBbYE2bFhB-SZ6nf7PvIjRtYSiRqISEMWM2JsJnoPUw_cxtRQthqzFJh768WARwCNE_k0sR3nAN2tD4zlRvJjEJAlEWHsAUQMzMCTDG0E');
 });

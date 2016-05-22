@@ -73,14 +73,14 @@ app.controller('getphotoCtrl', function ($scope, $state, Mood) {
         ajax.addEventListener("load", function (event) {
             uploadcomplete(event);
         }, false);
-        ajax.open("POST", "/html/upload.php");
+        ajax.open("POST", "/facial-recognition/html/upload.php");
         ajax.send(formdata);
     };
 
     function uploadcomplete(event) {
         document.getElementById("loading").innerHTML = "";
         var image_return = event.target.responseText;
-        var showup = document.getElementById("uploaded").src = 'http://bretthartman.net/facial-recognition/uploads/mypic.png';
+        var showup = document.getElementById("uploaded").src = 'http://bretthartman.net/facial-recognition/html/mypic.png';
     }
 
     function getEmotions() {
@@ -100,7 +100,7 @@ app.controller('getphotoCtrl', function ($scope, $state, Mood) {
                 xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", apiKey);
             },
             type: "POST",
-            data: "{\"url\": \"http://bretthartman.net/facial-recognition/uploads/mypic.png\"}"
+            data: "{\"url\": \"http://bretthartman.net/facial-recognition/html/mypic.png\"}"
         })
             .done(function (response) {
                 $('#response').html(response);
@@ -141,7 +141,7 @@ app.controller('homeCtrl', function ($scope) {
             })
                 .done(function (response) {
                     $('#response').html(response);
-                    console.log(response[0])
+                    console.log(response[0]);
                     var moodData = response[0].scores;
 
                     renderMood(moodData);
@@ -150,7 +150,7 @@ app.controller('homeCtrl', function ($scope) {
                     console.log(error.getAllResponseHeaders());
                 });
         }
-    }
+    };
 
     function renderMood(moodData) {
         // $scope.mood = moodData;
