@@ -118,8 +118,10 @@ app.controller('getphotoCtrl', function ($scope, $state, Mood) {
 });
 
 app.controller('homeCtrl', function ($scope, $state) {
-    $scope.mymood1='hey';
+
     console.log('home controller!')
+    var mymood1=[];
+    // $scope.testThis = mymood1;
 
     $scope.getFacialExpressionScore = function () {
         console.log('getFacialExpressionScore');
@@ -158,7 +160,9 @@ app.controller('homeCtrl', function ($scope, $state) {
                 var len =thisScore[0].length;
                 var finalScore = 10-len;
                 moodArray.push([finalScore,key])
-                $scope.mymood1=moodArray;
+                mymood1=moodArray;
+                console.log(mymood1)
+                $scope.setScope(mymood1)
                 return response[key];
 
               });
@@ -174,9 +178,13 @@ app.controller('homeCtrl', function ($scope, $state) {
                 console.log(error.getAllResponseHeaders());
             });
             //$scope.myMoods='great'
-            function setScope(){
-              console.log($scope.mymood1)
-
+            $scope.setScope = function (mymood1){
+              console.log("SET SCOPE");
+              console.log(mymood1);
+              // console.log($scope.mymood1)
+              $scope.$apply(function(){
+                $scope.testThis = mymood1;
+              })
             }
     }
 
