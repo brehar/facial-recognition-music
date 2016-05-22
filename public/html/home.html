@@ -255,7 +255,11 @@
                             <button id="imageUploadButton" class="btn btn-xl" ng-click='getFacialExpressionScore()'>Upload</button>
                         </div>
                         <div class="col-md-6 column-height-fix">
-                          <img ng-src= {{currentImage}}></img>
+
+                          <img class="round" ng-src = {{currentImage}}></img>
+                        </div>
+
+
                             <div> <span style="font-size: 2em; color: #FFFFFF; font-family: arial"> You seem... </span></div>
                             <ul ng-repeat="mood in emotionsArr">
                                 <li>{{mood[1]}} {{mood[0]}}</li>

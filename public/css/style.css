@@ -5,6 +5,36 @@
     padding: 30px 30px 30px 30px;
 }
 
+
+/*.fixed-image-size {
+  border-radius: 50%;
+  max-width: 100px;
+  max-height: 100px;
+}*/
+
+/*.circular {
+	width: 300px;
+	height: 300px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	}*/
+
+  .round {
+      border-radius: 50%;
+      overflow: hidden;
+      width: 150px;
+      height: 150px;
+  }
+  .round img {
+      display: block;
+  /* Stretch
+        height: 100%;
+        width: 100%; */
+  min-width: 100%;
+  min-height: 100%;
+  }
+
 .box {
     display: inline-block;
     width: 320px;
@@ -12,7 +42,8 @@
 }
 
 .column-height-fix {
- min-height: 366px;
+height: 366px;
+
 }
 
 .italics {
