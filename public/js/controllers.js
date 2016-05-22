@@ -118,7 +118,6 @@ app.controller('getphotoCtrl', function ($scope, $state, Mood) {
 });
 
 app.controller('homeCtrl', function ($scope, $state) {
-
     console.log('home controller!')
     var mymood1=[];
     // $scope.testThis = mymood1;
