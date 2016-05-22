@@ -1,4 +1,34 @@
-<pre>
+<div class="container">
+    <div class="page-header">
+        <h1 class="getPhotoHeader">Your Customized Playlist is Here</h1>
+        <p class="lead">It looks like you are currently feeling {{ currentMood }}</p>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-centered">
+        <ul>
+            <li ng-repeat="song in songs">
+                {{ song.track.name }} by {{ song.track.artists[0].name }}
+                <button class="btn btn-primary btn-sm" ng-click="playSong(song.track.preview_url)">Play Sample</button>
+            </li>
+        </ul>
+      </div>
+    </div>
+</div>
+
+<style>
+
+body {
+    padding-top: 65px;
+    background: #F09819;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #F09819, #EDDE5D);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #F09819, #EDDE5D);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+</style>
+
+<!-- <pre>
     Your current mood is {{ currentMood }}. Here are your song suggestions.
 </pre>
 
@@ -7,4 +37,4 @@
         {{ song.track.name }} by {{ song.track.artists[0].name }}
         <button class="btn btn-primary btn-sm" ng-click="playSong(song.track.preview_url)">Play Sample</button>
     </li>
-</ul>
+</ul> -->

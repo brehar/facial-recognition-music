@@ -817,6 +817,9 @@ background: linear-gradient(to left, #F09819 , #EDDE5D); /* W3C, IE 10+/ Edge, F
     text-align: center;
 }
 
-
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
 
 /*PHOTO PAGE STYLES END*/
