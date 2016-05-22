@@ -42,7 +42,6 @@ app.controller('musicresultsCtrl', function ($scope, Spotify, Mood) {
 });
 
 app.controller('getphotoCtrl', function ($scope, $state, Mood) {
-  console.log('get photos')
     $(document).ready(function () {
         $('#getMood').on('click', getEmotions);
     });
@@ -61,6 +60,7 @@ app.controller('getphotoCtrl', function ($scope, $state, Mood) {
             image_format: 'jpeg',
             jpeg_quality: 100
         });
+
         Webcam.attach('#my_camera');
     }
 
@@ -118,7 +118,6 @@ app.controller('getphotoCtrl', function ($scope, $state, Mood) {
 });
 
 app.controller('homeCtrl', function ($scope, $state) {
-    console.log('home controller!')
     var mymood1=[];
 
     $scope.getFacialExpressionScore = function () {
@@ -131,7 +130,6 @@ app.controller('homeCtrl', function ($scope, $state) {
     };
 
     function CallAPI(file, apiUrl, apiKey) {
-      console.log($state)
         $.ajax({
             url: apiUrl,
             beforeSend: function (xhrObj) {
@@ -153,29 +151,20 @@ app.controller('homeCtrl', function ($scope, $state) {
                 thisScore = thisScore.toString().split('.');
                 var len =thisScore[0].length;
                 var finalScore = 10-len;
-                moodArray.push([finalScore,key])
+                moodArray.push([finalScore,key]);
                 mymood1=moodArray;
-                console.log(mymood1)
-                $scope.setScope(mymood1)
+                console.log(mymood1);
+                $scope.setScope(mymood1);
                 return response[key];
               });
-              console.log(moodArray)
-              console.log('state:', $state)
-              console.log('scope', $scope)
            })
 
             .fail(function (error) {
                 console.log(error.getAllResponseHeaders());
             });
-            //$scope.myMoods='great'
             $scope.setScope = function (mymood1){
-              console.log("SET SCOPE");
-              console.log(mymood1);
-              // console.log($scope.mymood1)
               $scope.$apply(function(){
                 $scope.emotionsArr = mymood1;
-
-              
               })
             }
     }

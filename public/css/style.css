@@ -4,6 +4,14 @@
     border-color: #fff
 }
 
+.italics {
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
+}
+
 #Cam {
     background: rgb(255, 255, 215);
 }
