@@ -5,15 +5,15 @@ var app = angular.module('musicApp', ['ui.router', 'spotify']);
 app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('home', {
         url: '/',
-        templateUrl: '/html/home.html',
+        templateUrl: '/facial-recognition/html/home.html',
         controller: 'homeCtrl'
     }).state('/facial-recognition/musicresults', {
         url: '/musicresults',
-        templateUrl: '/html/musicresults.html',
+        templateUrl: '/facial-recognition/html/musicresults.html',
         controller: 'musicresultsCtrl'
     }).state('getphoto', {
         url: '/facial-recognition/getphoto',
-        templateUrl: '/html/getphoto.html',
+        templateUrl: '/facial-recognition/html/getphoto.html',
         controller: 'getphotoCtrl'
     });
     $urlRouterProvider.otherwise('/');
