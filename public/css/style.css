@@ -183,8 +183,6 @@ a.navbar-brand.page-scroll {
     }
 }
 header {
-
-
   background: #ffb347; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #ffb347 , #ffcc33); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #ffb347 , #ffcc33); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -780,6 +778,15 @@ font-family: oswald;
   src: local('Oswald Regular'), local('Oswald-Regular'), url(http://themes.googleusercontent.com/static/fonts/oswald/v7/-g5pDUSRgvxvOl5u-a_WHw.woff) format('woff');
 }
 
+section h3.section-subheading {
+color: #fff
+}
+
+input[type=file] {
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1em;
+    color: #fff;
+}
 /*PHOTO PAGE STYLES*/
 
 

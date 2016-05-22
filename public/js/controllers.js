@@ -120,8 +120,6 @@ app.controller('getphotoCtrl', function ($scope, $state, Mood) {
 app.controller('homeCtrl', function ($scope, $state) {
     console.log('home controller!')
     var mymood1=[];
-    // $scope.testThis = mymood1;
-
 
     $scope.getFacialExpressionScore = function () {
         console.log('getFacialExpressionScore');
@@ -129,13 +127,11 @@ app.controller('homeCtrl', function ($scope, $state) {
         var apiUrl = "https://api.projectoxford.ai/emotion/v1.0/recognize";
         console.log('image upload click!!!');
         var file = document.getElementById('filename').files[0];
-
         CallAPI(file, apiUrl, apiKey);
     };
 
     function CallAPI(file, apiUrl, apiKey) {
       console.log($state)
-
         $.ajax({
             url: apiUrl,
             beforeSend: function (xhrObj) {
@@ -162,14 +158,10 @@ app.controller('homeCtrl', function ($scope, $state) {
                 console.log(mymood1)
                 $scope.setScope(mymood1)
                 return response[key];
-
               });
               console.log(moodArray)
               console.log('state:', $state)
               console.log('scope', $scope)
-
-              //setScope()
-
            })
 
             .fail(function (error) {
@@ -181,12 +173,10 @@ app.controller('homeCtrl', function ($scope, $state) {
               console.log(mymood1);
               // console.log($scope.mymood1)
               $scope.$apply(function(){
-                $scope.testThis = mymood1;
+                $scope.emotionsArr = mymood1;
+
+              
               })
             }
     }
-
-
-
-
 });
