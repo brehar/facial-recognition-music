@@ -149,7 +149,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">About</h2>
+                <h2 class="section-heading">What Can Juno Do?</h2>
                 <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
         </div>
@@ -239,38 +239,29 @@
                 <div id="demoForm">
                     <div class="row">
                         <div class="col-md-6">
-                          <div> <span style="color: white; font-size: 1.25em; text-align: center;">Copy and Paste an Image URL</span> </div>
+                            <div>
+                                <span style="color: white; font-size: 1.25em; text-align: center;">Copy and Paste an Image URL</span>
+                            </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Image URL *" id="img-url">
                             </div>
-
                             <div class="clearfix"></div>
-                            <div class="col-lg-12 text-center">
-
-                                <div id="success"></div>
-                                <button type="submit" class="btn btn-xl">Image URL</button>
-
-                                <br>
-                                <br>
-                                <br>
-
-                                <input type="file" id="filename" name="filename">
-                                <button id="imageUploadButton" class="btn btn-xl" ng-click='getFacialExpressionScore()'>Upload</button>
-
-                            </div>
+                            <div id="success"></div>
+                            <button type="submit" ng-click="urlEmotion()" class="btn btn-xl">Image URL</button>
+                            <br>
+                            <br>
+                            <br>
+                            <input type="file" id="filename" name="filename">
+                            <button id="imageUploadButton" class="btn btn-xl" ng-click='getFacialExpressionScore()'>Upload</button>
                         </div>
-
-                        <div class="col-md-6">
-
-                            <div class="col-lg-12 text-center">
-
-                                <div> <span style="font-size: 2em; color: #FFFFFF; font-family: arial">Your Mood is: {{emotionsArr}} </span></div>
-
-                                <br>
-
-                            </div>
+                        <div class="col-md-6 column-height-fix">
+                          <img ng-src= {{currentImage}}></img>
+                            <div> <span style="font-size: 2em; color: #FFFFFF; font-family: arial"> You seem... </span></div>
+                            <ul ng-repeat="mood in emotionsArr">
+                                <li>{{mood[1]}} {{mood[0]}}</li>
+                            </ul>
+                            <br>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -317,91 +308,7 @@
 
                         <!-- PLAYLIST START  -->
                         <div class="top">HAPPY PLAYLIST</div>
-                            <div class = "centered-playlist">
-                              <ul class>
-                                  <li class="music">BREATHE CAROLINA | BLACKOUT</br>
-                                      <audio controls>
-                                          <source src="horse.ogg" type="audio/ogg">
-                                          <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-                                      </audio>
-                                  </li>
-                                  <li class="music">SWEDISH HOUSE MAFIA | DON'T YOU WORRY CHILD
-                                      <audio controls>
-                                          <source src="horse.ogg" type="audio/ogg">
-                                          <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-                                      </audio>
-                                  </li>
-                                  <li class="music">IMAGINE DRAGONS | RADIOACTIVE</br>
-                                      <audio controls>
-                                          <source src="horse.ogg" type="audio/ogg">
-                                          <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-                                      </audio>
-                                  </li>
-                                  <li class="music">BROKEN BELLS | THE HIGH ROAD</br>
-                                      <audio controls>
-                                          <source src="horse.ogg" type="audio/ogg">
-                                          <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-                                      </audio>
-                                  </li>
-                                  <li class="music">PAPER TOUNGUES | GET HIGHER </br>
-                                      <audio controls>
-                                          <source src="horse.ogg" type="audio/ogg">
-                                          <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-                                      </audio>
-                                  </li>
-                                  <li class="music">THE BLACK KEYS | LITTLE BLACK SUBMERINES</br>
-                                      <audio controls>
-                                          <source src="horse.ogg" type="audio/ogg">
-                                          <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-                                      </audio>
-                                  </li>
-                                  <li class="music">ALEX CLAIRE | TOO CLOSE</br>
-                                      <audio controls>
-                                          <source src="horse.ogg" type="audio/ogg">
-                                          <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-                                      </audio>
-                                  </li>
-                                  <li class="music">PAPER TOUNGUES | LOVE LIKE YOU</br>
-                                      <audio controls>
-                                          <source src="horse.ogg" type="audio/ogg">
-                                          <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-                                      </audio>
-                                  </li>
-                                  <li class="music">M83 | MIDNIGHT CITY</br>
-                                      <audio controls style="borer-radius: 0px;">
-                                          <source src="horse.ogg" type="audio/ogg">
-                                          <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-                                      </audio>
-                                  </li>
-                                  <br>
-                                  <br>
-                                  <!-- PLAYLIST END -->
-                            </div>
-
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Sample</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Sample-Playlists Modal 2 -->
-<div class="sample-playlists-modal modal fade" id="sample-playlistsModal2" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg">
-                    <div class="modal-body">
-                      <!-- PLAYLIST START  -->
-                      <div class="top">? PLAYLIST</div>
-                          <div class = "centered-playlist">
+                        <div class="centered-playlist">
                             <ul class>
                                 <li class="music">BREATHE CAROLINA | BLACKOUT</br>
                                     <audio controls>
@@ -460,9 +367,93 @@
                                 <br>
                                 <br>
                                 <!-- PLAYLIST END -->
-                          </div>
+                        </div>
 
-                          <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Sample</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Sample</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sample-Playlists Modal 2 -->
+<div class="sample-playlists-modal modal fade" id="sample-playlistsModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg">
+                    <div class="modal-body">
+                        <!-- PLAYLIST START  -->
+                        <div class="top">? PLAYLIST</div>
+                        <div class="centered-playlist">
+                            <ul class>
+                                <li class="music">BREATHE CAROLINA | BLACKOUT</br>
+                                    <audio controls>
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                                    </audio>
+                                </li>
+                                <li class="music">SWEDISH HOUSE MAFIA | DON'T YOU WORRY CHILD
+                                    <audio controls>
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                                    </audio>
+                                </li>
+                                <li class="music">IMAGINE DRAGONS | RADIOACTIVE</br>
+                                    <audio controls>
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                                    </audio>
+                                </li>
+                                <li class="music">BROKEN BELLS | THE HIGH ROAD</br>
+                                    <audio controls>
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                                    </audio>
+                                </li>
+                                <li class="music">PAPER TOUNGUES | GET HIGHER </br>
+                                    <audio controls>
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                                    </audio>
+                                </li>
+                                <li class="music">THE BLACK KEYS | LITTLE BLACK SUBMERINES</br>
+                                    <audio controls>
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                                    </audio>
+                                </li>
+                                <li class="music">ALEX CLAIRE | TOO CLOSE</br>
+                                    <audio controls>
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                                    </audio>
+                                </li>
+                                <li class="music">PAPER TOUNGUES | LOVE LIKE YOU</br>
+                                    <audio controls>
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                                    </audio>
+                                </li>
+                                <li class="music">M83 | MIDNIGHT CITY</br>
+                                    <audio controls style="borer-radius: 0px;">
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                                    </audio>
+                                </li>
+                                <br>
+                                <br>
+                                <!-- PLAYLIST END -->
+                        </div>
+
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Sample</button>
                     </div>
                 </div>
             </div>
@@ -486,68 +477,68 @@
                         <!-- Project Details Go Here -->
                         <!-- PLAYLIST START  -->
                         <div class="top">SAD PLAYLIST</div>
-                            <div class = "centered-playlist">
-                              <ul class>
-                                  <li class="music">BREATHE CAROLINA | BLACKOUT</br>
-                                      <audio controls>
-                                          <source src="horse.ogg" type="audio/ogg">
-                                          <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-                                      </audio>
-                                  </li>
-                                  <li class="music">SWEDISH HOUSE MAFIA | DON'T YOU WORRY CHILD
-                                      <audio controls>
-                                          <source src="horse.ogg" type="audio/ogg">
-                                          <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-                                      </audio>
-                                  </li>
-                                  <li class="music">IMAGINE DRAGONS | RADIOACTIVE</br>
-                                      <audio controls>
-                                          <source src="horse.ogg" type="audio/ogg">
-                                          <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-                                      </audio>
-                                  </li>
-                                  <li class="music">BROKEN BELLS | THE HIGH ROAD</br>
-                                      <audio controls>
-                                          <source src="horse.ogg" type="audio/ogg">
-                                          <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-                                      </audio>
-                                  </li>
-                                  <li class="music">PAPER TOUNGUES | GET HIGHER </br>
-                                      <audio controls>
-                                          <source src="horse.ogg" type="audio/ogg">
-                                          <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-                                      </audio>
-                                  </li>
-                                  <li class="music">THE BLACK KEYS | LITTLE BLACK SUBMERINES</br>
-                                      <audio controls>
-                                          <source src="horse.ogg" type="audio/ogg">
-                                          <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-                                      </audio>
-                                  </li>
-                                  <li class="music">ALEX CLAIRE | TOO CLOSE</br>
-                                      <audio controls>
-                                          <source src="horse.ogg" type="audio/ogg">
-                                          <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-                                      </audio>
-                                  </li>
-                                  <li class="music">PAPER TOUNGUES | LOVE LIKE YOU</br>
-                                      <audio controls>
-                                          <source src="horse.ogg" type="audio/ogg">
-                                          <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-                                      </audio>
-                                  </li>
-                                  <li class="music">M83 | MIDNIGHT CITY</br>
-                                      <audio controls style="borer-radius: 0px;">
-                                          <source src="horse.ogg" type="audio/ogg">
-                                          <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
-                                      </audio>
-                                  </li>
-                                  <br>
-                                  <br>
-                                  <!-- PLAYLIST END -->
-                            </div>
+                        <div class="centered-playlist">
+                            <ul class>
+                                <li class="music">BREATHE CAROLINA | BLACKOUT</br>
+                                    <audio controls>
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                                    </audio>
+                                </li>
+                                <li class="music">SWEDISH HOUSE MAFIA | DON'T YOU WORRY CHILD
+                                    <audio controls>
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                                    </audio>
+                                </li>
+                                <li class="music">IMAGINE DRAGONS | RADIOACTIVE</br>
+                                    <audio controls>
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                                    </audio>
+                                </li>
+                                <li class="music">BROKEN BELLS | THE HIGH ROAD</br>
+                                    <audio controls>
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                                    </audio>
+                                </li>
+                                <li class="music">PAPER TOUNGUES | GET HIGHER </br>
+                                    <audio controls>
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                                    </audio>
+                                </li>
+                                <li class="music">THE BLACK KEYS | LITTLE BLACK SUBMERINES</br>
+                                    <audio controls>
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                                    </audio>
+                                </li>
+                                <li class="music">ALEX CLAIRE | TOO CLOSE</br>
+                                    <audio controls>
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                                    </audio>
+                                </li>
+                                <li class="music">PAPER TOUNGUES | LOVE LIKE YOU</br>
+                                    <audio controls>
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                                    </audio>
+                                </li>
+                                <li class="music">M83 | MIDNIGHT CITY</br>
+                                    <audio controls style="borer-radius: 0px;">
+                                        <source src="horse.ogg" type="audio/ogg">
+                                        <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                                    </audio>
+                                </li>
+                                <br>
+                                <br>
+                                <!-- PLAYLIST END -->
+                        </div>
 
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Sample</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Sample</button>
                     </div>
                 </div>
             </div>
@@ -568,9 +559,9 @@
             <div class="row">
                 <div class="col-lg-8 col-lg">
                     <div class="modal-body">
-                      <!-- PLAYLIST START  -->
-                      <div class="top">NEUTRAL PLAYLIST</div>
-                          <div class = "centered-playlist">
+                        <!-- PLAYLIST START  -->
+                        <div class="top">NEUTRAL PLAYLIST</div>
+                        <div class="centered-playlist">
                             <ul class>
                                 <li class="music">BREATHE CAROLINA | BLACKOUT</br>
                                     <audio controls>
@@ -629,9 +620,9 @@
                                 <br>
                                 <br>
                                 <!-- PLAYLIST END -->
-                          </div>
+                        </div>
 
-                          <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Sample</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Sample</button>
                     </div>
                 </div>
             </div>
@@ -652,9 +643,9 @@
             <div class="row">
                 <div class="col-lg-8 col-lg">
                     <div class="modal-body">
-                      <!-- PLAYLIST START  -->
-                      <div class="top">ANGER PLAYLIST</div>
-                          <div class = "centered-playlist">
+                        <!-- PLAYLIST START  -->
+                        <div class="top">ANGER PLAYLIST</div>
+                        <div class="centered-playlist">
                             <ul class>
                                 <li class="music">BREATHE CAROLINA | BLACKOUT</br>
                                     <audio controls>
@@ -713,9 +704,9 @@
                                 <br>
                                 <br>
                                 <!-- PLAYLIST END -->
-                          </div>
+                        </div>
 
-                          <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Sample</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Sample</button>
                     </div>
                 </div>
             </div>
@@ -736,9 +727,9 @@
             <div class="row">
                 <div class="col-lg-8 col-lg center-block">
                     <div class="modal-body">
-                      <!-- PLAYLIST START  -->
-                      <div class="top">DISGUST PLAYLIST</div>
-                          <div class = "centered-playlist">
+                        <!-- PLAYLIST START  -->
+                        <div class="top">DISGUST PLAYLIST</div>
+                        <div class="centered-playlist">
                             <ul class>
                                 <li class="music">BREATHE CAROLINA | BLACKOUT</br>
                                     <audio controls>
@@ -797,9 +788,9 @@
                                 <br>
                                 <br>
                                 <!-- PLAYLIST END -->
-                          </div>
+                        </div>
 
-                          <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Sample</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Sample</button>
                     </div>
                 </div>
             </div>

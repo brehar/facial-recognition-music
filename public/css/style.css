@@ -1,7 +1,18 @@
+
+.col-md-6 {
+    width: 50%;
+    outline: 1px solid orange;
+    padding: 30px 30px 30px 30px;
+}
+
 .box {
     display: inline-block;
     width: 320px;
     border-color: #fff
+}
+
+.column-height-fix {
+ min-height: 366px;
 }
 
 .italics {
@@ -518,10 +529,9 @@ aside.clients img {
     margin: 50px auto
 }
 section#contact {
-    background-color: #222;
-    background-image: url(../img/map-image.png);
+    background-image: url(../img/music-background.png);
     background-position: center;
-    background-repeat: no-repeat
+    background-repeat: no-repeat;
 }
 section#contact .section-heading {
     color: #fff
@@ -572,6 +582,8 @@ section#contact .text-danger {
 footer {
     padding: 25px 0;
     text-align: center
+    position: absolute;
+    bottom: 0;
 }
 footer span.copyright {
     line-height: 40px;
