@@ -117,7 +117,7 @@ app.controller('getphotoCtrl', function ($scope, $state, Mood) {
 });
 
 app.controller('homeCtrl', function ($scope) {
-    console.log('home controller!')
+    console.log('home controller!');
 
     $scope.getFacialExpressionScore = function () {
         console.log('getFacialExpressionScore');
@@ -126,7 +126,7 @@ app.controller('homeCtrl', function ($scope) {
         console.log('image upload click!!!');
         var file = document.getElementById('filename').files[0];
 
-        CallAPI(file, apiUrl, apiKey)
+        CallAPI(file, apiUrl, apiKey);
 
         function CallAPI(file, apiUrl, apiKey) {
             $.ajax({

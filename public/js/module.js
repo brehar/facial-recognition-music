@@ -22,5 +22,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 app.config(function(SpotifyProvider) {
     SpotifyProvider.setClientId('b52dc91988324fd697d1f2db77378d46');
-    SpotifyProvider.setAuthToken('BQBs7wfOdARgq8jTfPJV5K57T6id19ZSIO6IJGNMjbjBbYE2bFhB-SZ6nf7PvIjRtYSiRqISEMWM2JsJnoPUw_cxtRQthqzFJh768WARwCNE_k0sR3nAN2tD4zlRvJjEJAlEWHsAUQMzMCTDG0E');
+
+    $.ajax({
+        url: 'https://spotify-token.herokuapp.com',
+        method: 'GET',
+        success: function(data) {
+            console.log(data);
+            SpotifyProvider.setAuthToken(data);
+        },
+        error: function(err) {
+            console.error(err);
+        }
+    });
 });
