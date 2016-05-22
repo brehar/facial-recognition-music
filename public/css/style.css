@@ -19,12 +19,6 @@
     display: none;
 }
 
-body {
-  padding-top: 65px;
-
-    overflow-x: hidden;
-    font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif
-}
 .text-muted {
     color: #777
 }
