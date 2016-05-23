@@ -1,28 +1,82 @@
+/*GETPHOTO PAGE*/
+.splash {
+  background: url("https://images.unsplash.com/photo-1458640904116-093b74971de9?crop=entropy&fit=crop&fm=jpg&h=1250&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1900") bottom center no-repeat;
+  background-size: cover;
+  color: #fff;
+  margin-bottom: 0 !important;
+  overflow: hidden;
+  padding-top: 10em !important;
+  padding-bottom: 12em !important;
+  position: relative;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+}
+
+.splash:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+/*GETPHOTO PAGE*/
+
+
+
+.headerPlaceholder{
+  color: #ffffff;
+  font-size: 5em;
+  font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+
+}
+
+.redirect-btn {
+  background-color: rgba(255, 255, 255, .02);
+  color: #fff;
+  border-color: #fff;
+  border-width: thin;
+}
+
+/*FANCY UPLOAD BUTTON STYLINGS*/
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #fff;
+    color: #fff;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+/*FANCY UPLOAD BUTTON STYLINGS*/
 
 .col-md-6 {
     width: 50%;
     outline: 1px solid orange;
     padding: 30px 30px 30px 30px;
+    height: 500px;
 }
 
+#demoForm {
+  text-align: center;
+}
 
-/*.fixed-image-size {
-  border-radius: 50%;
-  max-width: 100px;
-  max-height: 100px;
-}*/
+#nobullets li {
 
-/*.circular {
-	width: 300px;
-	height: 300px;
-	border-radius: 150px;
-	-webkit-border-radius: 150px;
-	-moz-border-radius: 150px;
-	}*/
+    list-style-type: none;
+
+}
 
   .round {
       border-radius: 50%;
-      overflow: hidden;
+      /*overflow: hidden;*/
       width: 150px;
       height: 150px;
   }
@@ -42,7 +96,7 @@
 }
 
 .column-height-fix {
-height: 366px;
+height: 500px;
 
 }
 
@@ -300,7 +354,12 @@ section h3.section-subheading {
     text-transform: none;
     font-style: italic;
     font-weight: 400;
-    margin-bottom: 75px
+    margin-bottom: 25px
+}
+
+
+section h3.section-subheading {
+color: #fff
 }
 @media (min-width:768px) {
     section {
@@ -571,7 +630,7 @@ section#contact .form-group {
     margin-bottom: 25px
 }
 section#contact .form-group input, section#contact .form-group textarea {
-    padding: 20px
+    padding: 20px 10px 20px 10px
 }
 section#contact .form-group input.form-control {
     height: auto
@@ -829,15 +888,7 @@ font-family: oswald;
   src: local('Oswald Regular'), local('Oswald-Regular'), url(http://themes.googleusercontent.com/static/fonts/oswald/v7/-g5pDUSRgvxvOl5u-a_WHw.woff) format('woff');
 }
 
-section h3.section-subheading {
-color: #fff
-}
 
-input[type=file] {
-  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1em;
-    color: #fff;
-}
 /*PHOTO PAGE STYLES*/
 
 

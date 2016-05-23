@@ -3,7 +3,7 @@
     <div class="container">
         <div class="intro-text">
             <div class="intro-lead-in">Use Facial Recognition Technology To Explore Musical Genres</div>
-            <div class="intro-heading">Mood Based Music Experience</div>
+            <div class="intro-heading">Your Mood-Based Music Experience Is Here</div>
             <a ui-sref="getphoto" class="page-scroll btn btn-xl">GET MY PLAYLIST</a>
         </div>
     </div>
@@ -231,13 +231,14 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">TRY IT NOW</h2>
-                <h3 class="section-subheading text-muted">Upload or Add a URL of Your Face and Get Your Customized Playlist</h3>
+                <h3 class="section-subheading text-muted">Upload or Add a URL of Your Face</h3>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12">
                 <div id="demoForm">
                     <div class="row">
+                        <!-- LEFT COLUMN -->
                         <div class="col-md-6">
                             <div>
                                 <span style="color: white; font-size: 1.25em; text-align: center;">Copy and Paste an Image URL</span>
@@ -251,25 +252,39 @@
                             <br>
                             <br>
                             <br>
-                            <input type="file" id="filename" name="filename">
-                            <button id="imageUploadButton" class="btn btn-xl" ng-click='getFacialExpressionScore()'>Upload</button>
-                        </div>
-                        <div class="col-md-6 column-height-fix">
-
-                          <img class="round" ng-src = {{currentImage}}></img>
-                        </div>
-
-
-                            <div> <span style="font-size: 2em; color: #FFFFFF; font-family: arial"> You seem... </span></div>
-                            <ul ng-repeat="mood in emotionsArr">
-                                <li>{{mood[1]}} {{mood[0]}}</li>
-                            </ul>
+                            <div>
+                                <span style="color: white; font-size: 1.25em; text-align: center;">Have your own file?</span>
+                            </div>
                             <br>
+                            <!-- FANCY UPLOAD BUTTON -->
+                            <label for="filename" class="custom-file-upload">
+                                <i class="fa fa-cloud-upload"></i> CHOOSE FILE
+                            </label>
+                            <input id="filename" type="file" />
+
+                            <button id="imageUploadButton" class="btn btn-xl" ng-click='getFacialExpressionScore() '>Upload</button>
                         </div>
+                        <!-- RIGHT COLUMN -->
+                        <div class="col-md-6 column-height-fix">
+                            <div class="headerPlaceholder" ng-hide="currentImage">Your Mood Stats Here</div>
+                            <img class="round" ng-src={ {currentImage}}></img>
+                            <div class="emotion-demo-header" ng-show="currentImage"> <span style="font-size: 2em; color: #FFFFFF; font-family: arial"> Your Mood Scores </span></div>
+                            <button class="redirect-btn" ng-show="currentImage" ui-sref='getphoto'>Get Your Playlist</button>
+
+                            <span style="font-size: 1em; color: #FFFFFF; font-family: arial;">
+                          <ul style="list-style-type: none;" ng-repeat="mood in emotionsArr">
+                              <li style="list-style-type: none;">{{mood[1]}} {{mood[0]}}0&#37; </li>
+                          </ul>
+                          </span>
+
+
+                        </div>
+                        <br>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </section>
 
 <footer>
