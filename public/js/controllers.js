@@ -3,37 +3,60 @@
 var app = angular.module('musicApp');
 
 app.controller('musicresultsCtrl', function ($scope, Spotify, Mood) {
-    var moods = Mood.getMood();
-    moods = moods.scores;
+    if (Mood.getMood()) {
+        var moods = Mood.getMood();
+        moods = moods.scores;
 
-    var arr = Object.keys(moods).map(function (key) {
-        return moods[key];
-    });
+        var arr = Object.keys(moods).map(function (key) {
+            return moods[key];
+        });
 
-    var max = Math.max.apply(null, arr);
+        var max = Math.max.apply(null, arr);
 
-    for (var prop in moods) {
-        if (moods.hasOwnProperty(prop)) {
-            if (moods[prop] === max) {
-                var mood = prop;
+        for (var prop in moods) {
+            if (moods.hasOwnProperty(prop)) {
+                if (moods[prop] === max) {
+                    var mood = prop;
+                }
             }
         }
+    } else {
+        var mood = 'neutral';
     }
 
     $scope.currentMood = mood;
 
-    Spotify.search(mood, 'playlist').then(res => {
-        var rand = Math.floor(Math.random() * res.playlists.items.length);
+    var option = Mood.getOption();
+    var username = Mood.getUsername();
 
-        var uri = res.playlists.items[rand].uri;
-        var uriArr = uri.split(':');
-        var userId = uriArr[2];
-        var playlistId = res.playlists.items[rand].id;
+    if (option === 'random') {
+        Spotify.search(mood, 'playlist').then(res => {
+            var rand = Math.floor(Math.random() * res.playlists.items.length);
 
-        return Spotify.getPlaylistTracks(userId, playlistId);
-    }).then(res => {
-        $scope.songs = res.items;
-    });
+            var uri = res.playlists.items[rand].uri;
+            var uriArr = uri.split(':');
+            var userId = uriArr[2];
+            var playlistId = res.playlists.items[rand].id;
+
+            return Spotify.getPlaylistTracks(userId, playlistId);
+        }).then(res => {
+            $scope.songs = res.items;
+        });
+    } else if (option === 'personal') {
+        Spotify.getUserPlaylists(username).then(res => {
+            var playlistId;
+
+            for (var i = 0; i < res.items.length; i++) {
+                if (res.items[i].name === mood) {
+                    playlistId = res.items[i].id;
+                }
+            }
+
+            return Spotify.getPlaylistTracks(username, playlistId);
+        }).then(res => {
+            $scope.songs = res.items;
+        });
+    }
 
     $scope.playSong = function (song) {
         var audio = new Audio(song);
@@ -105,8 +128,9 @@ app.controller('getphotoCtrl', function ($scope, $state, Mood) {
         })
             .done(function (response) {
                 $('#response').html(response);
-                console.log(response[0]);
                 Mood.setMood(response[0]);
+                Mood.setOption($scope.option);
+                Mood.setUsername($scope.username);
                 $state.go('musicresults');
             })
             .fail(function (error) {
