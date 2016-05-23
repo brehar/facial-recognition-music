@@ -65,6 +65,7 @@ app.controller('musicresultsCtrl', function ($scope, Spotify, Mood) {
 });
 
 app.controller('getphotoCtrl', function ($scope, $state, Mood) {
+  $scope.photoTaken = false;
     $(document).ready(function () {
         $('#getMood').on('click', getEmotions);
     });
@@ -73,6 +74,7 @@ app.controller('getphotoCtrl', function ($scope, $state, Mood) {
         Webcam.snap(function (data_uri) {
             document.getElementById('results').innerHTML = '<img id="base64image" src="' + data_uri + '"/>';
             $scope.SaveSnap();
+            $scope.photoTaken = true;
         });
     };
 
