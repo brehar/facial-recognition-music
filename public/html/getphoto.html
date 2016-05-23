@@ -1,39 +1,43 @@
-    <div class="container">
-        <div class="page-header">
-            <h1 class="getPhotoHeader">Snap A Pic</h1>
-            <p class="lead">Take a picture of your face to get your mood-based playlist</p>
-        </div>
-        <div class="row">
+<!-- JUMBOTRON START  -->
+<div class="jumbotron text-center splash">
+  <h1>SNAP A PIC</h1>
+</div>
+<!-- JUMBOTRON END -->
 
-            <div class="col-md-8">
-              <div class="centerBlock">
-                <div class = "video-header">
-                  Please Center Face in Camera
+<div class="container">
+    <div class="page-header">
+        <p class="lead">Take a picture of your face to get your mood-based playlist</p>
+    </div>
+    <div class="row">
+
+        <div class="col-md-8">
+            <div class="centerBlock">
+                <div class="video-header">
+                    Please Center Face in Camera
                 </div>
                 <br>
-                  <div id="my_camera"></div>
+                <div id="my_camera"></div>
                 <br>
-                  <form>
-                      <input type="button" class="btn-primary" value="Snap It" ng-click="take_snapshot()">
-                  </form>
-              </div>
+                <form>
+                    <input type="button" class="btn-primary" value="Snap It" ng-click="take_snapshot()">
+                </form>
             </div>
-            <!-- PREVIEW -->
+        </div>
+        <!-- PREVIEW -->
 
-            <div class="col-md-4">
+        <div class="col-md-4">
             <div class="box" id="Prev">
-                <b class = "video-header">Snap Preview...</b>
+                <b class="video-header">Snap Preview...</b>
                 <div id="results"></div>
             </div>
-            </div>
-
         </div>
 
-        <div class="box hidden" id="Saved">
-            <b>Saved</b><span id="loading"></span><img id="uploaded" src=""/>
-        </div>
     </div>
 
+    <div class="box hidden" id="Saved">
+        <b>Saved</b><span id="loading"></span><img id="uploaded" src="" />
+    </div>
+</div>
 
     <div class="container">
         <div class="page-header">
@@ -56,23 +60,17 @@
 
     Your Username <input type="text" name="Spotify Username" ng-model="username" />
   </div>
+        </form>
 
-</form>
-
-<div class="my-playlist-wrapper">
-             <button type="button" class="btn-primary my-playlist-button" id="getMood">My Mood Playlist</button>
-           </div>
-<!-- RADIO END -->
-
-
+        <div class="my-playlist-wrapper">
+            <button type="button" class="btn-primary my-playlist-button" id="getMood">My Mood Playlist</button>
         </div>
+        <!-- RADIO END -->
     </div>
-
-
+</div>
 
 <style>
     body {
-      padding-top: 65px;
         background: #F09819;
         /* fallback for old browsers */
         background: -webkit-linear-gradient(to left, #F09819, #EDDE5D);

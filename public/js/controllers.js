@@ -137,7 +137,6 @@ app.controller('getphotoCtrl', function ($scope, $state, Mood) {
                 console.log(error.getAllResponseHeaders());
             });
     }
-
     window.onload = ShowCam();
 });
 
@@ -153,6 +152,38 @@ app.controller('homeCtrl', function ($scope, $state) {
         CallAPI(file, apiUrl, apiKey);
     };
 
+    $scope.urlEmotion = function () {
+       console.log('urlEmotion');
+       var apiKey = "1dd1f4e23a5743139399788aa30a7153";
+       var apiUrl = "https://api.projectoxford.ai/emotion/v1.0/recognize";
+       var imgUrl = ($('#img-url').val())
+       $scope.currentImage=imgUrl;
+       console.log($scope.currentImage);
+       var callData = JSON.stringify({url: imgUrl});
+       console.log(callData)
+       //var file = document.getElementById('filename').files[0];
+       $.ajax({
+               url: apiUrl,
+               beforeSend: function (xhrObj) {
+                   xhrObj.setRequestHeader("Content-Type", "application/json");
+                   xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", apiKey);
+               },
+               type: "POST",
+               data: callData
+           })
+           .done(function (response) {
+              displayMood(response)
+           })
+           .fail(function (error) {
+               console.log(error.getAllResponseHeaders());
+           });
+           $scope.setScope = function (mymood1){
+             $scope.$apply(function(){
+               $scope.emotionsArr = mymood1;
+             })
+           }
+   };
+
     function CallAPI(file, apiUrl, apiKey) {
         $.ajax({
             url: apiUrl,
@@ -165,22 +196,7 @@ app.controller('homeCtrl', function ($scope, $state) {
             processData: false
         })
             .done(function (response) {
-                $('#response').html(response);
-                console.log(response[0]);
-                var moodData = response[0].scores;
-                var moodArray = [];
-                var arr = Object.keys(response[0].scores).map(function(key) {
-                var thisScore = response[0].scores[key];
-                thisScore = 1/Number(thisScore);
-                thisScore = thisScore.toString().split('.');
-                var len =thisScore[0].length;
-                var finalScore = 10-len;
-                moodArray.push([finalScore,key]);
-                mymood1=moodArray;
-                console.log(mymood1);
-                $scope.setScope(mymood1);
-                return response[key];
-              });
+              displayMood(response);
            })
 
             .fail(function (error) {
@@ -192,4 +208,25 @@ app.controller('homeCtrl', function ($scope, $state) {
               })
             }
     }
+
+
+  function displayMood(data){
+    $('#response').html(response);
+    // console.log(response[0]);
+    var response = data;
+    var moodData = response[0].scores;
+    var moodArray = [];
+    var arr = Object.keys(response[0].scores).map(function(key) {
+    var thisScore = response[0].scores[key];
+    thisScore = 1/Number(thisScore);
+    thisScore = thisScore.toString().split('.');
+    var len =thisScore[0].length;
+    var finalScore = 10-len;
+    moodArray.push([finalScore,key]);
+    mymood1=moodArray;
+    console.log(mymood1);
+    $scope.setScope(mymood1);
+    return response[key];
+  });
+  }
 });
