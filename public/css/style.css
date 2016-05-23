@@ -1,7 +1,6 @@
 /*GETPHOTO PAGE*/
 .splash {
-  background: url("https://images.unsplash.com/photo-1458640904116-093b74971de9?crop=entropy&fit=crop&fm=jpg&h=1250&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1900") bottom center no-repeat;
-  background-size: cover;
+  background:
   color: #fff;
   margin-bottom: 0 !important;
   overflow: hidden;
